@@ -36,9 +36,9 @@
 
     <!-- 추후 loadBlock으로 저장했던 코드를 블록형태로 불러오는 기능 추가 -->
     <div id="save_buttons">
-        <button id="save_but" onClick="loadBlock(sampleJsonBlocks)">Sample</button>
-        <button id="save_block_but" onClick="saveBlock()">SaveBlock</button>
-        <button id="save_but" onClick="loadBlock()">LoadBlock</button>
+        <button id="save_but" onClick="loadSample(sampleJsonBlocks)">Sample</button>
+        <button id="save_block_but" onClick="saveBlock()">Save Block</button>
+        <button id="save_but" onClick="loadBlock()">Load Block</button>
     </div>
 
     <div>
@@ -782,6 +782,7 @@
         // 공식문서에 따르면, updateToolbox를 통해 사용가능한 블록을 변경할 수 있다고 한다.
         // 그래서 기본값이었던 Rule 탭의 toolbox에서 일부 요소를 변경하여
         //  Sample, Preference, Option, Input 카테고리를 띄우는 것 같음!
+
         function click_preference_tab() {
             document.getElementById("in_box_rule").style.display = "none"
             document.getElementById("in_box_preference").style.display = ""
@@ -1038,26 +1039,82 @@
         //
         // 파일명이 비어있는 상태에서 Rule 탭을 누르면 미리 준비된 sampleJsonBlocks의 json을
         // Rule 워크스페이스로 불러옴
-        function saveBlock() {
-            var json = serializer.save(workspaceForRule)
-            if (json) {
-                console.log(json);
 
+        // function saveBlock() {
+        //     var json = serializer.save(workspaceForRule)
+        //     if (json) {
+        //         console.log(json);
+
+        //         try {
+        //             var fileName = document.getElementById("name").value;
+        //             if (fileName) {
+        //                 // var code = document.getElementsByClassName("smartApp_code").textContent;
+        //                 var blob = new Blob([JSON.stringify(json)], { type: "text/plain;charset=utf-8" });
+        //                 saveAs(blob, fileName + ".smartblock");
+        //             } else {
+        //                 alert("plz write the App name");
+        //             }
+        //         } catch (e) {
+        //             alert(e);
+        //         }
+        //     }
+        // }
+
+        function saveBlock() {
+            var json = serializer.save(workspaceForRule);
+            if (json) {
                 try {
                     var fileName = document.getElementById("name").value;
                     if (fileName) {
-                        // var code = document.getElementsByClassName("smartApp_code").textContent;
-                        var blob = new Blob([JSON.stringify(json)], { type: "text/plain;charset=utf-8" });
+                        var blob = new Blob([JSON.stringify(json)], { type: "application/json;charset=utf-8" });
                         saveAs(blob, fileName + ".smartblock");
                     } else {
-                        alert("plz write the App name");
+                        alert("Please enter a name for the block.");
                     }
                 } catch (e) {
                     alert(e);
                 }
             }
-            // else
-            //     loadBlock(sampleJsonBlocks);
+        }
+
+        // FileSaver를 이용하여 컴퓨터 내에 저장된 파일을 읽어 RuleWorkSpace로 불러오는 기능
+        // 여기서는 workspace의 이름이 workspaceForRule로 지정되어 있으므로, 불러올 때 해당 workspace가 없으면 에러 처리 진행
+        // Smart Block 실행 시 Blockly.inject를 통해 workspaceForRule이 실행되므로, 블록 로드는 정상적으로 실행됨을 확인
+        // 다만, Preference 탭의 경우 Preference 탭을 클릭한 이후 Blockly.inject가 실행되기 때문에 그로 인한 이슈가 발생함을 확인
+        function loadBlock() {
+            try {
+                var fileInput = document.createElement('input');
+                fileInput.type = 'file';
+                fileInput.addEventListener('change', function (event) {
+                    var file = event.target.files[0];
+                    var reader = new FileReader();
+                    reader.onload = function () {
+                        try {
+                            var json = JSON.parse(reader.result);
+                            if (typeof workspaceForRule !== 'undefined' && workspaceForRule !== null) {
+                                workspaceForRule.clear();
+                                serializer.load(json, workspaceForRule);
+                            } else {
+                                throw new Error("Workspace not defined or null");
+                            }
+                        } catch (e) {
+                            alert(e);
+                        }
+                    };
+                    reader.readAsText(file);
+                });
+                fileInput.click();
+            } catch (e) {
+                alert(e);
+            }
+        }
+
+
+        // Sample 블록 로드를 위한 임시함수
+        // 기존에 있던 loadBlock 함수의 이름을 loadSample로 변경하였음.
+        // 현재는 위에있는 loadBlock 함수를 이용하여 블록을 읽어옴!
+        function loadSample(json) {
+            serializer.load(json, workspaceForRule)
         }
 
         var sampleJsonBlocks =
@@ -1103,11 +1160,6 @@
                 }
             ]
         }
-
-        function loadBlock(json) {
-            serializer.load(json, workspaceForRule)
-        }
-
     </script>
 
 </body>
