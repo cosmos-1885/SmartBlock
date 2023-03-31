@@ -1,1 +1,37 @@
-{"languageVersion":0,"blocks":[{"type":"ea","id":"1KNt#90{HP^ATY;XV+=[","x":113,"y":94,"inputs":{"Event":{"block":{"type":"e_accelerationSensorSingleENUMacceleration","id":"Uuy-QEn_C7(`+iU[z0cA","fields":{"name":{"id":"RBh:J)F#PfSnE|zT43f8"},"attribute":"active"}}},"Action":{"block":{"type":"a_switchCommand","id":"B%zCH:3zt70C{F|U4X40","fields":{"name":{"id":"w=;ZdTPBd:ftru0A,Ae*"},"Command":"on"}}}}}]}
+{
+  "languageVersion": 0,
+  "blocks": [
+    {
+      "type": "ea",
+      "id": "1KNt#90{HP^ATY;XV+=[",
+      "x": 113,
+      "y": 94,
+      "inputs": {
+        "Event": {
+          "block": {
+            "type": "e_accelerationSensorSingleENUMacceleration",
+            "id": "Uuy-QEn_C7(`+iU[z0cA",
+            "fields": {
+              "name": {
+                "id": "RBh:J)F#PfSnE|zT43f8"
+              },
+              "attribute": "active"
+            }
+          }
+        },
+        "Action": {
+          "block": {
+            "type": "a_switchCommand",
+            "id": "B%zCH:3zt70C{F|U4X40",
+            "fields": {
+              "name": {
+                "id": "w=;ZdTPBd:ftru0A,Ae*"
+              },
+              "Command": "on"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

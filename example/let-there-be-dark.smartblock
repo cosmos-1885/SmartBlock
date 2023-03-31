@@ -1,1 +1,135 @@
-{"languageVersion":0,"blocks":[{"type":"eca","id":"-h/mme/2q[/(9@^Uj)M;","x":161,"y":63,"inputs":{"Event":{"block":{"type":"e_contactSensorSingleENUMcontact","id":"okNCZTi1ROLN@SdmNRVJ","fields":{"name":{"id":"8-U6`%6ut1XkbXAKoD_9"},"attribute":"open"}}},"Condition":{"block":{"type":"compare","id":"wiJb7tXX#4njXa81GXnK","fields":{"OP":"EQ"},"inputs":{"A":{"block":{"type":"c_switchsingle","id":"Xh.%y]ba8wp5GQ-+D?2|","fields":{"name":{"id":"sBwj,4R5)dk5@V,GLJk|"}}}},"B":{"block":{"type":"c_switchsingle","id":"jWYl,hE]yl@Sy%S7[|6[","fields":{"name":{"id":"W`E;zZPlft[vGy4?OaHL"}}}}}}},"Action":{"block":{"type":"a_switchCommand","id":"ocG*R%CzL]RH`:f8H*n5","fields":{"name":{"id":"sBwj,4R5)dk5@V,GLJk|"},"Command":"off"}}}},"next":{"block":{"type":"eca","id":"gS?JYR]OZLj}2$jOrh7~","inputs":{"Event":{"block":{"type":"e_contactSensorSingleENUMcontact","id":"^i}bl_j2J^yet$-cho!W","fields":{"name":{"id":"8-U6`%6ut1XkbXAKoD_9"},"attribute":"open"}}},"Condition":{"block":{"type":"compare","id":"(v}~?@k|{W~vDc^25As:","fields":{"OP":"EQ"},"inputs":{"A":{"block":{"type":"c_switchsingle","id":"IRLP@eE=mCyIuA0/oE_i","fields":{"name":{"id":"sBwj,4R5)dk5@V,GLJk|"}}}},"B":{"block":{"type":"c_switchsingle","id":"j|`_O2O/`qzz:1p/zG3@","fields":{"name":{"id":"W`E;zZPlft[vGy4?OaHL"}}}}}}},"Action":{"block":{"type":"a_switchCommand","id":"la289@nhf6k)Ja7ULU6|","fields":{"name":{"id":"sBwj,4R5)dk5@V,GLJk|"},"Command":"on"}}}}}}}]}
+{
+  "languageVersion": 0,
+  "blocks": [
+    {
+      "type": "eca",
+      "id": "-h/mme/2q[/(9@^Uj)M;",
+      "x": 161,
+      "y": 63,
+      "inputs": {
+        "Event": {
+          "block": {
+            "type": "e_contactSensorSingleENUMcontact",
+            "id": "okNCZTi1ROLN@SdmNRVJ",
+            "fields": {
+              "name": {
+                "id": "8-U6`%6ut1XkbXAKoD_9"
+              },
+              "attribute": "open"
+            }
+          }
+        },
+        "Condition": {
+          "block": {
+            "type": "compare",
+            "id": "wiJb7tXX#4njXa81GXnK",
+            "fields": {
+              "OP": "EQ"
+            },
+            "inputs": {
+              "A": {
+                "block": {
+                  "type": "c_switchsingle",
+                  "id": "Xh.%y]ba8wp5GQ-+D?2|",
+                  "fields": {
+                    "name": {
+                      "id": "sBwj,4R5)dk5@V,GLJk|"
+                    }
+                  }
+                }
+              },
+              "B": {
+                "block": {
+                  "type": "c_switchsingle",
+                  "id": "jWYl,hE]yl@Sy%S7[|6[",
+                  "fields": {
+                    "name": {
+                      "id": "W`E;zZPlft[vGy4?OaHL"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Action": {
+          "block": {
+            "type": "a_switchCommand",
+            "id": "ocG*R%CzL]RH`:f8H*n5",
+            "fields": {
+              "name": {
+                "id": "sBwj,4R5)dk5@V,GLJk|"
+              },
+              "Command": "off"
+            }
+          }
+        }
+      },
+      "next": {
+        "block": {
+          "type": "eca",
+          "id": "gS?JYR]OZLj}2$jOrh7~",
+          "inputs": {
+            "Event": {
+              "block": {
+                "type": "e_contactSensorSingleENUMcontact",
+                "id": "^i}bl_j2J^yet$-cho!W",
+                "fields": {
+                  "name": {
+                    "id": "8-U6`%6ut1XkbXAKoD_9"
+                  },
+                  "attribute": "open"
+                }
+              }
+            },
+            "Condition": {
+              "block": {
+                "type": "compare",
+                "id": "(v}~?@k|{W~vDc^25As:",
+                "fields": {
+                  "OP": "EQ"
+                },
+                "inputs": {
+                  "A": {
+                    "block": {
+                      "type": "c_switchsingle",
+                      "id": "IRLP@eE=mCyIuA0/oE_i",
+                      "fields": {
+                        "name": {
+                          "id": "sBwj,4R5)dk5@V,GLJk|"
+                        }
+                      }
+                    }
+                  },
+                  "B": {
+                    "block": {
+                      "type": "c_switchsingle",
+                      "id": "j|`_O2O/`qzz:1p/zG3@",
+                      "fields": {
+                        "name": {
+                          "id": "W`E;zZPlft[vGy4?OaHL"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "Action": {
+              "block": {
+                "type": "a_switchCommand",
+                "id": "la289@nhf6k)Ja7ULU6|",
+                "fields": {
+                  "name": {
+                    "id": "sBwj,4R5)dk5@V,GLJk|"
+                  },
+                  "Command": "on"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
